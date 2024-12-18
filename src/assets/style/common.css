@@ -26,6 +26,7 @@ body {
 }
 
 .sectionTitle {
+  padding-top: 24px;
   margin-bottom: 16px;
   font-size: 20px;
 }

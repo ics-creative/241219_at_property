@@ -4,6 +4,11 @@
   initial-value: 0deg;
 }
 
+.circularArea {
+  width: 320px;
+  margin: 0 auto;
+}
+
 .circleWrapper {
   position: relative;
   width: 320px;
@@ -32,6 +37,16 @@
   animation: circular 5s linear infinite;
 }
 
+@keyframes circular {
+  from {
+    --degree: 0deg;
+  }
+
+  to {
+    --degree: 360deg;
+  }
+}
+
 .heartMove {
   --a: 7; /* ハートの大きさ */
 
@@ -43,16 +58,6 @@
     );
   animation: heart 2.5s linear infinite;
   animation-delay: calc(var(--index) * 0.18s);
-}
-
-@keyframes circular {
-  from {
-    --degree: 0deg;
-  }
-
-  to {
-    --degree: 360deg;
-  }
 }
 
 @keyframes heart {
