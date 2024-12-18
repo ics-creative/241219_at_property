@@ -1,0 +1,68 @@
+@property --progress {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.boxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  background-color: #86e5ce;
+  border-radius: 8px;
+}
+
+.shake {
+  --amplitude: 0.3; /* 振幅 */
+  --frequency: 6; /* 周期 */
+  --attenuationRate: 2; /* 減衰率 */
+
+  scale: calc(
+    1 + var(--amplitude) * (pow(exp(1), var(--progress) * -1 * var(--attenuationRate))) *
+      cos(var(--progress) * 3.14 * var(--frequency))
+  );
+  animation: shake1 4s linear infinite;
+}
+
+@keyframes shake1 {
+  from {
+    --progress: 0;
+  }
+
+  to {
+    --progress: 6;
+  }
+}
+
+.pudding {
+  --amplitude: 1.5; /* 振幅 */
+  --frequency: 5; /* 周期 */
+  --attenuationRate: 0.9; /* 減衰率 */
+
+  transform: skewX(
+    calc(
+      10deg * var(--amplitude) * (pow(exp(1), var(--progress) * -1 * var(--attenuationRate))) *
+        cos(var(--progress) * 3.14 * var(--frequency))
+    )
+  );
+  transform-origin: 50% 100%;
+  animation: shake2 6s linear infinite;
+}
+
+@keyframes shake2 {
+  from {
+    --progress: 0;
+  }
+
+  to {
+    --progress: 8;
+  }
+}

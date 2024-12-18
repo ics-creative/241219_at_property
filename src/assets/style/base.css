@@ -1,0 +1,79 @@
+@property --custom-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f00;
+}
+
+@property --custom-inherit-color {
+  syntax: "<color>";
+  inherits: true; /* デフォルトで親の値を継承する */
+  initial-value: #f00; /* 赤色 */
+}
+
+@property --custom-non-inherit-color {
+  syntax: "<color>";
+  inherits: false; /* デフォルトで親の値を継承しない */
+  initial-value: #f00; /* 赤色 */
+}
+
+.baseArea {
+  font-size: 24px;
+
+  .wrapper {
+    margin-bottom: 48px;
+  }
+}
+
+.myElement {
+  --custom-color: 100px; /* 無効な値 */
+
+  color: var(--custom-color); /* 初期値の赤色になる */
+}
+
+.parent {
+  --custom-inherit-color: #0f0; /* 緑色 */
+  --custom-non-inherit-color: #0f0; /* 緑色 */
+  .child1 {
+    color: var(--custom-inherit-color); /* 緑色 */
+  }
+
+  .child2 {
+    color: var(--custom-non-inherit-color); /* 赤色 */
+  }
+}
+
+.parent.explicitInherit {
+  --custom-non-inherit-color: #0f0; /* 緑色 */
+  .child1 {
+    --custom-non-inherit-color: inherit; /* 親の値を継承する */
+
+    color: var(--custom-non-inherit-color); /* 緑色 */
+  }
+
+  .child2 {
+    --custom-non-inherit-color: #0f0; /* 緑色を宣言する */
+
+    color: var(--custom-non-inherit-color); /* 緑色 */
+  }
+}
+
+@property --custom-animation {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes custom-animation {
+  0% {
+    --custom-animation: 0;
+  }
+
+  100% {
+    --custom-animation: 100px;
+  }
+}
+
+.movingBox {
+  translate: var(--custom-animation) 0;
+  animation: custom-animation 1s infinite alternate linear;
+}

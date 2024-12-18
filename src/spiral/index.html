@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@propertyを使ったアニメーション - らせん</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&family=Noto+Color+Emoji&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/assets/style/style.js" type="module"></script>
+  </head>
+  <body>
+    <div class="globalWrapper">
+      <h1 class="pageTitle">らせん</h1>
+
+      <div class="spiralArea">
+        <div class="foods" style="--index: 0">
+          <img src="/assets/images/apple.svg" alt="apple" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 1">
+          <img src="/assets/images/carrot.svg" alt="carrot" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 2">
+          <img src="/assets/images/bread.svg" alt="bread" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 3">
+          <img src="/assets/images/peach.svg" alt="peach" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 4">
+          <img src="/assets/images/hamburger.svg" alt="hamburger" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 5">
+          <img src="/assets/images/kiwi.svg" alt="kiwi" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 6">
+          <img src="/assets/images/eggplant.svg" alt="eggplant" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 7">
+          <img src="/assets/images/ebi.svg" alt="ebi" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 8">
+          <img src="/assets/images/corn.svg" alt="corn" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 9">
+          <img src="/assets/images/cookie.svg" alt="cookie" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 10">
+          <img src="/assets/images/chocolate.svg" alt="chocolate" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 11">
+          <img src="/assets/images/cake.svg" alt="cake" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 12">
+          <img src="/assets/images/meat.svg" alt="meat" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 13">
+          <img src="/assets/images/grape.svg" alt="grape" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 14">
+          <img src="/assets/images/wine.svg" alt="wine" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 15">
+          <img src="/assets/images/sushi.svg" alt="sushi" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 16">
+          <img src="/assets/images/orange.svg" alt="orange" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 17">
+          <img src="/assets/images/onigiri.svg" alt="onigiri" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 18">
+          <img src="/assets/images/strawberry.svg" alt="strawberry" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 19">
+          <img src="/assets/images/dango.svg" alt="dango" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 20">
+          <img src="/assets/images/lollipop.svg" alt="lollipop" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 21">
+          <img src="/assets/images/banana.svg" alt="banana" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 22">
+          <img src="/assets/images/melon.svg" alt="melon" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 23">
+          <img src="/assets/images/beer.svg" alt="beer" width="56" height="56" />
+        </div>
+        <div class="foods" style="--index: 24">
+          <img src="/assets/images/pizza.svg" alt="pizza" width="56" height="56" />
+        </div>
+      </div>
+
+      <p class="backToIndex">
+        <a href="../index.html">目次へ戻る</a>
+      </p>
+    </div>
+    <script>
+      // Firefoxのアイテム表示が消えてしまうバグを回避するための処理
+      let flag = false;
+      setInterval(() => {
+        if (flag) {
+          document.body.style.isolation = "initial";
+          flag = false;
+        } else {
+          document.body.style.isolation = "isolate";
+          flag = true;
+        }
+      }, 100);
+    </script>
+  </body>
+</html>

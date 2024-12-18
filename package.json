@@ -1,0 +1,26 @@
+{
+  "name": "at_property",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prettier": "prettier \"**/*.{css,scss,ts,js,html}\" --write",
+    "stylelint": "stylelint --fix src/assets/style/*.css",
+    "format": "pnpm run prettier && pnpm run stylelint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "16.4.5",
+    "glob": "11.0.0",
+    "prettier": "3.3.3",
+    "stylelint": "16.10.0",
+    "stylelint-config-recess-order": "5.1.1",
+    "stylelint-config-standard": "36.0.1",
+    "vite": "5.4.11"
+  }
+}

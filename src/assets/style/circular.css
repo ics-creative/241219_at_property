@@ -1,0 +1,66 @@
+@property --degree {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.circleWrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto 24px;
+  background-color: #efefef;
+  border-radius: 16px;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  background-color: #43d572;
+  border-radius: 50%;
+}
+
+.circleMove1 {
+  --r: 134px; /* 半径 */
+
+  translate: calc(var(--r) * cos(var(--degree))) calc(var(--r) * sin(var(--degree)));
+  animation: circular 5s linear infinite;
+}
+
+.heartMove {
+  --a: 7; /* ハートの大きさ */
+
+  scale: calc(1 - var(--index) * 0.05);
+  translate: calc(var(--a) * 1px * 16 * pow(sin(var(--degree)), 3))
+    calc(
+      -1px * var(--a) * (13 * cos(var(--degree)) - 5 * cos(2 * var(--degree)) - 2 *
+            cos(3 * var(--degree)) - cos(4 * var(--degree)))
+    );
+  animation: heart 2.5s linear infinite;
+  animation-delay: calc(var(--index) * 0.18s);
+}
+
+@keyframes circular {
+  from {
+    --degree: 0deg;
+  }
+
+  to {
+    --degree: 360deg;
+  }
+}
+
+@keyframes heart {
+  from {
+    --degree: 0deg;
+  }
+
+  to {
+    --degree: 360deg;
+  }
+}

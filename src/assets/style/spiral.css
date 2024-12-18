@@ -1,0 +1,60 @@
+@property --spiralRadian {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --spiralScale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.spiralArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: "Noto Color Emoji", sans-serif;
+}
+
+.foods {
+  --spiralA: 0.5; /* 係数1 */
+  --spiralB: 0.6; /* 係数2 */
+  --spiralDistance: 2; /* うずまき距離 */
+  --ease-out-sine: cubic-bezier(0.61, 1, 0.88, 1);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+  rotate: calc(var(--spiralRadian) * 180deg / 6.18);
+  scale: calc(0.01 * pow(var(--spiralScale), 2));
+  translate: calc(
+      var(--spiralA) * pow(exp(1), var(--spiralB) * var(--spiralRadian)) *
+        cos(var(--spiralRadian) + var(--index) * var(--spiralDistance)) * 1px
+    )
+    calc(
+      var(--spiralA) * pow(exp(1), var(--spiralB) * var(--spiralRadian)) *
+        sin(var(--spiralRadian) + var(--index) * var(--spiralDistance)) * 1px
+    );
+  animation: spiral 6s calc(var(--index) * 0.25s) var(--ease-out-sine) infinite;
+}
+
+@keyframes spiral {
+  from {
+    --spiralRadian: 12.56;
+    --spiralScale: 20;
+  }
+
+  to {
+    --spiralRadian: 4.17;
+    --spiralScale: 0;
+  }
+}
