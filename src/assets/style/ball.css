@@ -16,8 +16,8 @@
 }
 
 .ball {
-  --v0x: 640px; /* 水平方向の速度 */
-  --v0y: 6; /* 垂直方向の速度 */
+  --v0x: 640; /* 水平方向の初速度 */
+  --v0y: 58.8; /* 垂直方向の初速度。9.8の倍数にすると落下までの時間計算が楽。58.8 = 9.8 × 6 */
   --g: 9.8; /* 重力加速度 */
 
   position: absolute;
@@ -27,8 +27,8 @@
   background-color: hsl(calc(var(--index) * 10) 80% 70%);
   border-radius: 50%;
   scale: calc(1 - var(--index) * 0.08);
-  translate: calc(var(--v0x) * var(--timeX))
-    calc((var(--v0y) * 9.8 * var(--timeY) - 0.5 * var(--g) * pow(var(--timeY), 2)) * -1px);
+  translate: calc(var(--v0x) * var(--timeX) * 1px)
+    calc((var(--v0y) * var(--timeY) - 0.5 * var(--g) * pow(var(--timeY), 2)) * -1px);
   animation:
     ballAnimationX 1.8s linear infinite,
     ballAnimationY 0.6s linear infinite;
@@ -51,6 +51,6 @@
   }
 
   to {
-    --timeY: 12; /* (2 × v0y) で発射から着地までの時間になる */
+    --timeY: 12; /* (2 × v0y ÷ 9.8) で発射から着地までの時間になる */
   }
 }
